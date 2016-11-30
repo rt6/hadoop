@@ -13,6 +13,10 @@ $ ln -s hadoop-2.7.3/ hadoop
 # check JAVA_HOME environment variable
 $ echo $JAVA_HOME
 
+# add HADOOP_HOME and JAVA_HOME to bashrc
+export HADOOP_HOME=/usr/local/hadoop
+export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
+
 # find java home directory
 $ readlink -f /usr/bin/java | sed "s:bin/java::"
 
