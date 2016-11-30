@@ -60,7 +60,16 @@ export JAVA_HOME=/same/value/as/$JAVA_HOME
 $ bin/hdfs -namenode -format
 $ bin/hdfs getconf -namenodes
 
-# start 
+# start hdfs
 $ start-dfs.sh
+
+# start yarn
+$ start-yarn.sh
+
+# access hadoop browser
+http://localhost:50070/
+
+# see all applications in browser
+http://localhost:8088/
 
 ```
