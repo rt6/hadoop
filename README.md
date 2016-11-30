@@ -19,4 +19,12 @@ $ readlink -f /usr/bin/java | sed "s:bin/java::"
 # test hadoop installation
 $ /usr/local/hadoop/bin/hadoop version
 
+# test wordcount using mapreduce algorithm
+$ mkdir ~/wordcount_input
+$ cp /usr/local/hadoop/*.txt ~/wordcount_input
+$ /usr/local/hadoop/bin/hadoop jar /usr/local/hadoop/share/hadoop/mapreduce/hadoop-mapreuce-examples-2.7.3.jar  wordcount wordcount_input/ wordcount_outpout
+
+# see hadoop wordcount results
+$ cat ~/wordcount_output/*
+
 ```
