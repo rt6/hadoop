@@ -1,6 +1,6 @@
 # HADOOP
 
-### 1) Installation
+### 1) Installation (Single Node)
 
 ```sh
 $ cd /usr/local
@@ -30,5 +30,37 @@ $ /usr/local/hadoop/bin/hadoop jar /usr/local/hadoop/share/hadoop/mapreduce/hado
 
 # see hadoop wordcount results
 $ cat ~/wordcount_output/*
+
+```
+
+### 2) Installation (Pseudo Distributed Mode)
+```sh
+# add these to .bashrc
+export HADOOP_HOME=/usr/local/hadoop 
+export HADOOP_MAPRED_HOME=$HADOOP_HOME 
+export HADOOP_COMMON_HOME=$HADOOP_HOME 
+export HADOOP_HDFS_HOME=$HADOOP_HOME 
+export YARN_HOME=$HADOOP_HOME 
+export HADOOP_COMMON_LIB_NATIVE_DIR=$HADOOP_HOME/lib/native 
+export PATH=$PATH:$HADOOP_HOME/sbin:$HADOOP_HOME/bin 
+export HADOOP_INSTALL=$HADOOP_HOME 
+export HADOOP_CONF_DIR=$HADOOP_HOME/etc/hadoop
+export HADOOP_OPTS="$HADOOP_OPTS -Djava.library.path=/usr/local/hadoop/lib/native"
+
+# add JAVA_HOME to hadoop/etc/hadoop/hadoop-env.sh
+export JAVA_HOME=/same/value/as/$JAVA_HOME
+
+# add configs to these files
+1. hadoop/etc/hadoop/core-site.xml   (make sure there is no space in the xml tag values)
+1. hadoop/etc/hadoop/hdfs-site.xml
+1. hadoop/etc/hadoop/yarn-site.xml
+1. hadoop/etc/hadoop/mapred-site.xml
+
+# setup name node
+$ bin/hdfs -namenode -format
+$ bin/hdfs getconf -namenodes
+
+# start 
+$ start-dfs.sh
 
 ```
