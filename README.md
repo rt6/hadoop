@@ -1,5 +1,15 @@
 # HADOOP
 
+### Why use Hadoop?
+- hadoop makes it easy to scale big data processing over hundreds and thousands of compute nodes 
+- provides a distributed file system (HDFS Hadoop Distributed File System)
+- proivdes yarn (to manage and control tasks executed on multiple compute nodes in parallel)
+- uses MapReduce approach to solve data processing problems
+- processing is done on the node where the data is stored.  This reduces network traffic
+- after the map tasks, the cluster reduces the data and sends results back to hadoop server
+
+
+
 ### 1) Installation (Single Node)
 
 ```sh
@@ -78,4 +88,11 @@ http://localhost:50070/
 # see yarn (all running jobs) in browser
 http://localhost:8088/
 
+```
+
+### HDFS commands
+```sh
+$ $HADOOP_HOME/bin/hadoop fs -ls / 
+$ $HADOOP_HOME/bin/hadoop fs -mkdir /input_dir
+$ $HADOOP_HOME/bin/hadoop fs -put file.txt /input_dir 
 ```
