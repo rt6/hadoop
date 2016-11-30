@@ -56,9 +56,11 @@ export JAVA_HOME=/same/value/as/$JAVA_HOME
 1. hadoop/etc/hadoop/yarn-site.xml
 1. hadoop/etc/hadoop/mapred-site.xml
 
-# setup name node
-$ bin/hdfs -namenode -format
+# check namenode configs for hdfs
 $ bin/hdfs getconf -namenodes
+
+# format hdfs namenode
+$ bin/hdfs namenode -format
 
 # start hdfs
 $ start-dfs.sh
@@ -66,10 +68,14 @@ $ start-dfs.sh
 # start yarn
 $ start-yarn.sh
 
-# access hadoop browser
+# these 2 have been deprecated
+$ stop-all.sh
+$ start-all.sh
+
+# see hdfs status in browser
 http://localhost:50070/
 
-# see all applications in browser
+# see yarn (all running jobs) in browser
 http://localhost:8088/
 
 ```
